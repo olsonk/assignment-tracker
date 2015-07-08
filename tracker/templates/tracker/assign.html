@@ -1,0 +1,23 @@
+<h1>{{ Assignment.assigned }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+<form action="{% url 'tracker:add' %}" method="post" name="assignment">
+{% csrf_token %}
+
+<select name="subject">
+	<option value="Reading">Reading</option>
+	<option value="Writing">Writing</option>
+	<option value="Language">Language</option>
+	<option value="Math">Math</option>
+	<option value="Science">Science</option>
+	<option value="SocialStudies">Social Studies</option>
+	<option value="Other">Other</option>
+</select>
+Description: <input type="text" name="description">
+Due: <input type="text" name="due_date"><br>
+
+
+<input type="submit" value="Assign" />
+</form>

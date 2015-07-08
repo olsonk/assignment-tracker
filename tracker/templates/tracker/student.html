@@ -1,0 +1,13 @@
+<h1> {{ student.full_name }} </h1>
+
+<p> {{ student.first_name }} is missing {{ student.numbermissing }} assignments</p>
+
+{% if student.numbermissing > 0 %}
+	<p> The assignments missing are: </p>
+	<ul>
+		{% for i in student.missingwork_set.all %}
+			<li>{{ i.assignment.subject }}, {{ i.assignment }}, 
+				{{ i.assignment.due_date }}</li>
+		{% endfor %}
+	</ul>
+{% endif %}

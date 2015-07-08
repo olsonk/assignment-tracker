@@ -1,0 +1,16 @@
+<h1>Add Students</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+<form action="{% url 'tracker:add' %}" method="post" name="student">
+{% csrf_token %}
+
+First Name: <input type="text" name="first_name">
+Last Name: <input type="text" name="last_name">
+Class Year (ex. 13-14): <input type="text" name="classYear">
+Student ID: <input type="text" name="studentID"><br>
+
+
+<input type="submit" value="Add Student" />
+</form>

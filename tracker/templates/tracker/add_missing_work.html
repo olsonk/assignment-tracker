@@ -1,0 +1,13 @@
+<h1>Add Missing Work</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+<form action="{% url 'tracker:add_missing_work' %}" method="post" name="missingwork">
+{% csrf_token %}
+
+{{ form.as_p }}
+
+
+<input type="submit" value="Add Missing Assignment" />
+</form>

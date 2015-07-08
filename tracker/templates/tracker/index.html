@@ -1,0 +1,21 @@
+<h1>Welcome to AssignmentTracker!</h1>
+
+<p>With AssignmentTracker, you'll be able to enter a class roster and manage homework
+assignments for the class, setting due dates and tracking missed work for the class.
+You'll also be able to view student details at-a-glance and e-mail parent notices
+easily.</p>
+
+<p>To get started, click below to either log in or set up an account!</p>
+
+<p>Click on a student name below to view that student's details</p>
+
+<ul>
+	{% for student in all_students %}
+		<li><a href="{% url 'tracker:student' student.id %}">{{ student.full_name }}</a></li>
+	{% endfor %}
+	<li><a href="{% url 'tracker:add_student' %}">Add students</a></li>
+</ul>
+
+<p>Click <a href="{% url 'tracker:daily_view' %}">here</a> to add assignments!</p>
+
+<p>Click <a href="{% url 'tracker:add_missing_work' %}">here</a> to add missing work!</p>
